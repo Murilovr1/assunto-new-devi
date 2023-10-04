@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+<script>
+    function numero() {
+        const num = document.getElementById("areadonumero").value;
+        document.getElementById("valor-form").innerHTML = "";
+        for (let contador = 1; contador <= 10; contador++) {
+            const resultado = num * contador
+            document.getElementById("valor-form").innerHTML += `<p> ${num} x ${contador} = ${resultado} </p>`
+
+        }
+    }
+
+    function filtroLista() {
+        const filtro = document.getElementById("filtro").value.toLowerCase();
+        const lis = document.getElementsByTagName("li");
+
+        for (const li of lis) {
+            if (filtro == "") {   
+                li.style.display =`block`;
+                li.style.fontWeight = `normal` ;
+            
+            }else if (li.innerText.toLowerCase().startsWith(filtro)) {
+                li.style.display =`block`;
+                li.style.fontWeight = `bold` ;
+                
+            }else {
+                li.style.display = `none`;
+            }
+        }
+    }
+</script>
+<style>
+    #valor-form {
+        font-size: 32px;
+        height: 100px
+    }
+</style>
+
+<body>
+
+    <form>
+        <input id="areadonumero" type="text" oninput="numero();">
+    </form>
+    <div id="valor-form"></div>
+</body>
+
+<form>
+    <label for="">Filtro:</label>
+    <input type="text" id="filtro" oninput="filtroLista()">
+</form>
+
+<ul>
+    <li>João</li>
+    <li>André</li>
+    <li>Marcia</li>
+    <li>Marcelo</li>
+    <li>Murilo</li>
+    <li>Anna</li>
+    <li>Fabio</li>
+    <li>Arthur</li>
+    <li>Nicole</li>
+    <li>Nicolas</li>
+    <li>Jack</li>
+    <li>Kaio</li>
+</ul>
+
+</html>
